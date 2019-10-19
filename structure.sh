@@ -9,29 +9,20 @@ mkdir tests
 mkdir Database
 
 mkdir Material
-cd Material
-mkdir Shader
-
-cd ..
+mkdir Material/Shader
 
 mkdir Assets
-cd Assets
-mkdir Models
-mkdir Audio
-mkdir Texture
-mkdir Font
-
-cd ..
+mkdir Assets/Models
+mkdir Assets/Audio
+mkdir Assets/Texture
+mkdir Assets/Font
 
 mkdir Scripts
-cd Scripts
-mkdir Global
-mkdir Player
-mkdir Enemy
-mkdir GameSet
+mkdir Scripts/Global
+mkdir Scripts/Player
+mkdir Scripts/Enemy
+mkdir Scripts/GameSet
 
-cd ..
 mkdir Fx
-cd Fx
-mkdir Gpu
-mkdir Cpu
+mkdir Fx/Gpu
+mkdir Fx/Cpu
