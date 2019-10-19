@@ -5,7 +5,7 @@ mkdir Notes
 mkdir Scenes
 mkdir Prefap
 mkdir Exports
-mkdir tests
+mkdir Tests
 mkdir Database
 
 mkdir Material
