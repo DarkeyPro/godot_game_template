@@ -5,7 +5,7 @@ func tweening(object:Node,property:String,to,duration=0.0,completed =false,trans
 	tween.interpolate_property(object,property,object.get(property),to,duration,trans_type,ease_type,delay)
 	tween.start()
 	if completed:
-		yield($Tween,"tween_completed")
+		yield(tween,"tween_completed")
 	tween.queue_free()
 func find_file(path,specific ="",type =""):
 	var indivisual = true if type != "" and specific !="" else false
