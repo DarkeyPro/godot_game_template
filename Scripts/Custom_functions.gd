@@ -26,6 +26,6 @@ func find_file(path,specific ="",type =""):
 		for i in paths :
 			if specific in i and type in i:
 				return i
-		pass
+		return ""
 	else:
 		return paths
