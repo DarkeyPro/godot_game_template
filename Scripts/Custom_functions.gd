@@ -2,6 +2,7 @@ extends Node
 
 func tweening(object:Node,property:String,to,duration=0.0,completed =false,trans_type=Tween.TRANS_LINEAR,ease_type =Tween.EASE_IN_OUT,delay =0.0):
 	var tween = Tween.new()
+	add_child(tween)
 	tween.interpolate_property(object,property,object.get(property),to,duration,trans_type,ease_type,delay)
 	tween.start()
 	if completed:
