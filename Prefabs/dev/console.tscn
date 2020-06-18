@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/dev/console.gd" type="Script" id=1]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+pause_mode = 2
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -392.0
+margin_right = 602.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_right = 602.0
+margin_bottom = 364.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Debug console"
+readonly = true
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_top = 368.0
+margin_right = 602.0
+margin_bottom = 392.0
+[connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
