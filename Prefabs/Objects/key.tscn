@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/settings/key.gd" type="Script" id=1]
+
+
+
+[node name="key" type="HBoxContainer"]
+margin_right = 437.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+margin_right = 69.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="."]
+margin_left = 73.0
+margin_top = 3.0
+margin_right = 142.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "key"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer4" type="MarginContainer" parent="."]
+margin_left = 146.0
+margin_right = 215.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="ToolButton" type="Button" parent="."]
+margin_left = 219.0
+margin_right = 288.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+text = "key"
+
+[node name="ToolButton2" type="Button" parent="."]
+margin_left = 292.0
+margin_right = 361.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+text = "key"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+margin_left = 365.0
+margin_right = 437.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+[connection signal="toggled" from="ToolButton" to="." method="prime"]
+[connection signal="toggled" from="ToolButton" to="." method="_on_ToolButton_toggled"]
+[connection signal="toggled" from="ToolButton2" to="." method="scand"]

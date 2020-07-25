@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://Scripts/global/state_action.gd"
+}, {
+"base": "Node",
 "class": "State_Machine",
 "language": "GDScript",
 "path": "res://Scripts/global/State_Machine.gd"
 } ]
 _global_script_class_icons={
+"State": "",
 "State_Machine": ""
 }
 
@@ -35,6 +41,8 @@ default_bus_layout="res://Assets/In_game_resource/audiobuslayout.tres"
 CustomTools="*res://Scripts/global/Custom_Tools.gd"
 InputTemplete="*res://Scripts/global/Input Templete.gd"
 Console="*res://Prefabs/dev/console.tscn"
+Loading="*res://Prefabs/Objects/loading.tscn"
+IndexDb="*res://Scripts/global/index_db.gd"
 
 [input]
 

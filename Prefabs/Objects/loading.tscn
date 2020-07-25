@@ -8,14 +8,12 @@ bg_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
 
-[node name="main" type="Node"]
-
-[node name="loading" type="Node" parent="."]
+[node name="loading" type="Node"]
 script = ExtResource( 1 )
 
-[node name="Tween" type="Tween" parent="loading"]
+[node name="Tween" type="Tween" parent="."]
 
-[node name="background" type="Panel" parent="loading"]
+[node name="background" type="Panel" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -24,7 +22,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="fade" type="Panel" parent="loading"]
+[node name="fade" type="Panel" parent="."]
 visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0

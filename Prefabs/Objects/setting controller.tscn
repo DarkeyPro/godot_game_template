@@ -1,0 +1,915 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/settings/VEDIO_setting.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/settings/AUDIO_setting.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/settings/controller.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/settings/game_play.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/settings/setting_controller.gd" type="Script" id=5]
+[ext_resource path="res://Prefabs/Objects/key.tscn" type="PackedScene" id=6]
+
+[sub_resource type="ButtonGroup" id=1]
+
+[node name="setting controller" type="VBoxContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -236.0
+margin_right = 120.0
+margin_bottom = 212.0
+size_flags_horizontal = 15
+size_flags_vertical = 15
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 440.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="game_play" type="Button" parent="HBoxContainer"]
+margin_right = 107.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Game Play"
+
+[node name="controller" type="Button" parent="HBoxContainer"]
+margin_left = 111.0
+margin_right = 218.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Controller"
+
+[node name="VEDIO_PAN" type="Button" parent="HBoxContainer"]
+margin_left = 222.0
+margin_right = 329.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Vedio"
+
+[node name="AUDIO_PAN" type="Button" parent="HBoxContainer"]
+margin_left = 333.0
+margin_right = 440.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Audio"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_top = 24.0
+margin_right = 440.0
+margin_bottom = 100.0
+
+[node name="game_play" type="VBoxContainer" parent="MarginContainer"]
+use_parent_material = true
+margin_right = 440.0
+margin_bottom = 76.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/game_play"]
+use_parent_material = true
+margin_right = 440.0
+margin_bottom = 4.0
+
+[node name="language" type="HBoxContainer" parent="MarginContainer/game_play"]
+use_parent_material = true
+margin_top = 8.0
+margin_right = 440.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/game_play/language"]
+use_parent_material = true
+margin_top = 3.0
+margin_right = 218.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Language"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/game_play/language"]
+use_parent_material = true
+margin_left = 222.0
+margin_right = 440.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "en_US"
+items = [ "en_US", null, false, 0, null ]
+selected = 0
+
+[node name="HUD opacity" type="HBoxContainer" parent="MarginContainer/game_play"]
+use_parent_material = true
+margin_top = 32.0
+margin_right = 440.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/game_play/HUD opacity"]
+use_parent_material = true
+margin_right = 218.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/game_play/HUD opacity/HSplitContainer"]
+use_parent_material = true
+margin_top = 1.0
+margin_right = 198.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "HUD opacity"
+
+[node name="Label2" type="Label" parent="MarginContainer/game_play/HUD opacity/HSplitContainer"]
+use_parent_material = true
+margin_left = 210.0
+margin_top = 1.0
+margin_right = 218.0
+margin_bottom = 15.0
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpinBox" type="HSlider" parent="MarginContainer/game_play/HUD opacity"]
+use_parent_material = true
+margin_left = 222.0
+margin_right = 440.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="FOV" type="HBoxContainer" parent="MarginContainer/game_play"]
+use_parent_material = true
+margin_top = 52.0
+margin_right = 440.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/game_play/FOV"]
+use_parent_material = true
+margin_right = 218.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/game_play/FOV/HSplitContainer"]
+use_parent_material = true
+margin_top = 1.0
+margin_right = 190.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "FOV"
+
+[node name="Label2" type="Label" parent="MarginContainer/game_play/FOV/HSplitContainer"]
+use_parent_material = true
+margin_left = 202.0
+margin_top = 1.0
+margin_right = 218.0
+margin_bottom = 15.0
+text = "70"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpinBox" type="HSlider" parent="MarginContainer/game_play/FOV"]
+use_parent_material = true
+margin_left = 222.0
+margin_right = 440.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = 70.0
+max_value = 120.0
+value = 70.0
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/game_play"]
+use_parent_material = true
+margin_top = 72.0
+margin_right = 440.0
+margin_bottom = 76.0
+
+[node name="AUDIO_PAN" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+use_parent_material = true
+margin_right = 440.0
+margin_bottom = 164.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/AUDIO_PAN"]
+use_parent_material = true
+margin_right = 416.0
+margin_bottom = 4.0
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/AUDIO_PAN"]
+use_parent_material = true
+margin_top = 8.0
+margin_right = 416.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+
+[node name="VoiceOver" type="HBoxContainer" parent="MarginContainer/AUDIO_PAN/VBoxContainer"]
+use_parent_material = true
+margin_right = 416.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/AUDIO_PAN/VBoxContainer/VoiceOver"]
+use_parent_material = true
+margin_top = 3.0
+margin_right = 206.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Voice over"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/AUDIO_PAN/VBoxContainer/VoiceOver"]
+use_parent_material = true
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "english"
+items = [ "english", null, false, 0, null ]
+selected = 0
+
+[node name="Master" type="HBoxContainer" parent="MarginContainer/AUDIO_PAN/VBoxContainer"]
+use_parent_material = true
+margin_top = 24.0
+margin_right = 416.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/AUDIO_PAN/VBoxContainer/Master"]
+use_parent_material = true
+margin_top = 1.0
+margin_right = 206.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "Master"
+
+[node name="HS_G" type="HSlider" parent="MarginContainer/AUDIO_PAN/VBoxContainer/Master"]
+use_parent_material = true
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 0.0
+value = -7.0
+tick_count = 7
+
+[node name="BGM" type="HBoxContainer" parent="MarginContainer/AUDIO_PAN/VBoxContainer"]
+use_parent_material = true
+margin_top = 44.0
+margin_right = 416.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/AUDIO_PAN/VBoxContainer/BGM"]
+use_parent_material = true
+margin_top = 1.0
+margin_right = 206.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "BGM"
+
+[node name="HS_M" type="HSlider" parent="MarginContainer/AUDIO_PAN/VBoxContainer/BGM"]
+use_parent_material = true
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 0.0
+tick_count = 7
+ticks_on_borders = true
+
+[node name="SFX" type="HBoxContainer" parent="MarginContainer/AUDIO_PAN/VBoxContainer"]
+use_parent_material = true
+margin_top = 64.0
+margin_right = 416.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/AUDIO_PAN/VBoxContainer/SFX"]
+use_parent_material = true
+margin_top = 1.0
+margin_right = 206.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "SFX"
+
+[node name="HS_FX" type="HSlider" parent="MarginContainer/AUDIO_PAN/VBoxContainer/SFX"]
+use_parent_material = true
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 0.0
+tick_count = 7
+
+[node name="Voice_over" type="HBoxContainer" parent="MarginContainer/AUDIO_PAN/VBoxContainer"]
+use_parent_material = true
+margin_top = 84.0
+margin_right = 416.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/AUDIO_PAN/VBoxContainer/Voice_over"]
+use_parent_material = true
+margin_top = 1.0
+margin_right = 206.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "VO"
+
+[node name="HS_FX" type="HSlider" parent="MarginContainer/AUDIO_PAN/VBoxContainer/Voice_over"]
+use_parent_material = true
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 0.0
+tick_count = 7
+
+[node name="Voice_chat" type="HBoxContainer" parent="MarginContainer/AUDIO_PAN/VBoxContainer"]
+use_parent_material = true
+margin_top = 104.0
+margin_right = 416.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/AUDIO_PAN/VBoxContainer/Voice_chat"]
+use_parent_material = true
+margin_top = 1.0
+margin_right = 206.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "Voice Chat"
+
+[node name="HS_FX" type="HSlider" parent="MarginContainer/AUDIO_PAN/VBoxContainer/Voice_chat"]
+use_parent_material = true
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 0.0
+tick_count = 7
+
+[node name="mute" type="CheckBox" parent="MarginContainer/AUDIO_PAN"]
+use_parent_material = true
+margin_top = 132.0
+margin_right = 416.0
+margin_bottom = 156.0
+size_flags_horizontal = 3
+pressed = true
+text = "mute"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/AUDIO_PAN"]
+use_parent_material = true
+margin_top = 160.0
+margin_right = 416.0
+margin_bottom = 164.0
+size_flags_horizontal = 3
+
+[node name="controller" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+use_parent_material = true
+margin_right = 440.0
+margin_bottom = 76.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+key_path = ExtResource( 6 )
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/controller"]
+use_parent_material = true
+margin_top = 24.0
+margin_right = 416.0
+margin_bottom = 28.0
+
+[node name="player" type="HBoxContainer" parent="MarginContainer/controller"]
+use_parent_material = true
+margin_top = 32.0
+margin_right = 416.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/controller/player"]
+use_parent_material = true
+margin_right = 120.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="MarginContainer/controller/player"]
+use_parent_material = true
+margin_left = 124.0
+margin_right = 144.0
+margin_bottom = 20.0
+group = SubResource( 1 )
+text = "<"
+
+[node name="Label" type="Label" parent="MarginContainer/controller/player"]
+use_parent_material = true
+margin_left = 148.0
+margin_top = 3.0
+margin_right = 268.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "player 1"
+align = 1
+
+[node name="Button" type="Button" parent="MarginContainer/controller/player"]
+use_parent_material = true
+margin_left = 272.0
+margin_right = 292.0
+margin_bottom = 20.0
+group = SubResource( 1 )
+text = ">"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/controller/player"]
+use_parent_material = true
+margin_left = 296.0
+margin_right = 416.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/controller"]
+use_parent_material = true
+margin_top = 56.0
+margin_right = 416.0
+margin_bottom = 60.0
+
+[node name="keys" type="ScrollContainer" parent="MarginContainer/controller"]
+use_parent_material = true
+margin_top = 64.0
+margin_right = 416.0
+margin_bottom = 440.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+scroll_vertical = 6
+scroll_deadzone = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/controller/keys"]
+margin_right = 416.0
+margin_bottom = 376.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/controller"]
+use_parent_material = true
+margin_top = 444.0
+margin_right = 416.0
+margin_bottom = 448.0
+
+[node name="VEDIO_PAN" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+use_parent_material = true
+margin_right = 440.0
+margin_bottom = 171.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VEDIO_PAN"]
+use_parent_material = true
+margin_right = 416.0
+margin_bottom = 4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="display_mode" type="HBoxContainer" parent="MarginContainer/VEDIO_PAN"]
+use_parent_material = true
+margin_top = 8.0
+margin_right = 416.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VEDIO_PAN/display_mode"]
+use_parent_material = true
+margin_top = 3.0
+margin_right = 206.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Display Mode"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VEDIO_PAN/display_mode"]
+use_parent_material = true
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 170, 20 )
+size_flags_horizontal = 3
+text = "windowed"
+align = 1
+items = [ "full screen", null, false, 0, null, "windowed", null, false, 1, null ]
+selected = 1
+
+[node name="resloution" type="HBoxContainer" parent="MarginContainer/VEDIO_PAN"]
+use_parent_material = true
+margin_top = 32.0
+margin_right = 416.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VEDIO_PAN/resloution"]
+use_parent_material = true
+margin_top = 3.0
+margin_right = 206.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Resolution"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VEDIO_PAN/resloution"]
+use_parent_material = true
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 170, 20 )
+size_flags_horizontal = 3
+text = "640x480"
+align = 1
+items = [ "640x480", null, false, 0, null, "800x480", null, false, 1, null, "1024x768", null, false, 2, null, "1200x900", null, false, 3, null, "1280x1024", null, false, 4, null, "1440x900", null, false, 5, null, "1680x1050", null, false, 6, null ]
+selected = 0
+
+[node name="fps" type="HBoxContainer" parent="MarginContainer/VEDIO_PAN"]
+use_parent_material = true
+margin_top = 56.0
+margin_right = 416.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/VEDIO_PAN/fps"]
+use_parent_material = true
+margin_right = 206.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VEDIO_PAN/fps/HSplitContainer"]
+use_parent_material = true
+margin_top = 1.0
+margin_right = 178.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+text = "Fps"
+
+[node name="Label2" type="Label" parent="MarginContainer/VEDIO_PAN/fps/HSplitContainer"]
+use_parent_material = true
+margin_left = 190.0
+margin_top = 1.0
+margin_right = 206.0
+margin_bottom = 15.0
+text = "30"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpinBox" type="HSlider" parent="MarginContainer/VEDIO_PAN/fps"]
+use_parent_material = true
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = 30.0
+max_value = 120.0
+value = 30.0
+
+[node name="exposure" type="HBoxContainer" parent="MarginContainer/VEDIO_PAN"]
+use_parent_material = true
+margin_top = 76.0
+margin_right = 416.0
+margin_bottom = 92.0
+size_flags_horizontal = 3
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/VEDIO_PAN/exposure"]
+use_parent_material = true
+margin_right = 206.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VEDIO_PAN/exposure/HSplitContainer"]
+use_parent_material = true
+margin_top = 1.0
+margin_right = 174.0
+margin_bottom = 15.0
+rect_pivot_offset = Vector2( -213.984, 43.1559 )
+size_flags_horizontal = 3
+text = "Exposure"
+
+[node name="Label2" type="Label" parent="MarginContainer/VEDIO_PAN/exposure/HSplitContainer"]
+use_parent_material = true
+margin_left = 186.0
+margin_top = 1.0
+margin_right = 206.0
+margin_bottom = 15.0
+rect_pivot_offset = Vector2( -213.984, 43.1559 )
+text = "0.5"
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/VEDIO_PAN/exposure"]
+use_parent_material = true
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 0.5
+max_value = 5.0
+step = 0.1
+value = 0.5
+exp_edit = true
+ticks_on_borders = true
+
+[node name="vsync_hdr" type="HBoxContainer" parent="MarginContainer/VEDIO_PAN"]
+use_parent_material = true
+margin_top = 96.0
+margin_right = 416.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+
+[node name="vsync" type="CheckBox" parent="MarginContainer/VEDIO_PAN/vsync_hdr"]
+use_parent_material = true
+margin_right = 64.0
+margin_bottom = 24.0
+text = "vsync"
+
+[node name="HDR" type="CheckBox" parent="MarginContainer/VEDIO_PAN/vsync_hdr"]
+modulate = Color( 1, 0.984375, 0.984375, 1 )
+use_parent_material = true
+margin_left = 68.0
+margin_right = 124.0
+margin_bottom = 24.0
+text = "HDR"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VEDIO_PAN"]
+use_parent_material = true
+margin_top = 124.0
+margin_right = 416.0
+margin_bottom = 128.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="video_set" type="HBoxContainer" parent="MarginContainer/VEDIO_PAN"]
+use_parent_material = true
+margin_top = 132.0
+margin_right = 416.0
+margin_bottom = 163.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VEDIO_PAN/video_set"]
+use_parent_material = true
+margin_right = 206.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( -213.984, 43.1559 )
+size_flags_horizontal = 3
+text = "Video
+"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VEDIO_PAN/video_set"]
+use_parent_material = true
+margin_left = 210.0
+margin_right = 416.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 170, 20 )
+size_flags_horizontal = 3
+text = "low"
+align = 1
+items = [ "low", null, false, 0, null, "medium", null, false, 1, null, "high", null, false, 2, null, "very high", null, false, 3, null, "custom", null, false, 4, null ]
+selected = 0
+
+[node name="quality" type="VBoxContainer" parent="MarginContainer/VEDIO_PAN"]
+visible = false
+use_parent_material = true
+margin_top = 167.0
+margin_right = 265.0
+margin_bottom = 291.0
+
+[node name="anit_aliasing" type="HBoxContainer" parent="MarginContainer/VEDIO_PAN/quality"]
+use_parent_material = true
+margin_right = 265.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VEDIO_PAN/quality/anit_aliasing"]
+margin_top = 3.0
+margin_right = 91.0
+margin_bottom = 17.0
+rect_pivot_offset = Vector2( -213.984, 43.1559 )
+size_flags_horizontal = 3
+text = "Anti Aliasing"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VEDIO_PAN/quality/anit_aliasing"]
+margin_left = 95.0
+margin_right = 265.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 170, 20 )
+size_flags_horizontal = 3
+text = "off"
+align = 1
+items = [ "off", null, false, 0, null, "low", null, false, 1, null, "medium", null, false, 2, null, "high", null, false, 3, null, "very high", null, false, 4, null ]
+selected = 0
+
+[node name="shadow" type="HBoxContainer" parent="MarginContainer/VEDIO_PAN/quality"]
+use_parent_material = true
+margin_top = 24.0
+margin_right = 265.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VEDIO_PAN/quality/shadow"]
+margin_top = 3.0
+margin_right = 91.0
+margin_bottom = 17.0
+rect_pivot_offset = Vector2( -213.984, 43.1559 )
+size_flags_horizontal = 3
+text = "Shadow"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VEDIO_PAN/quality/shadow"]
+margin_left = 95.0
+margin_right = 265.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 170, 20 )
+size_flags_horizontal = 3
+text = "low"
+align = 1
+items = [ "low", null, false, 1, null, "medium", null, false, 2, null, "high", null, false, 3, null, "very high", null, false, 4, null ]
+selected = 0
+
+[node name="post_process" type="HBoxContainer" parent="MarginContainer/VEDIO_PAN/quality"]
+use_parent_material = true
+margin_top = 48.0
+margin_right = 265.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VEDIO_PAN/quality/post_process"]
+margin_top = 3.0
+margin_right = 91.0
+margin_bottom = 17.0
+rect_pivot_offset = Vector2( -213.984, 43.1559 )
+size_flags_horizontal = 3
+text = "Post process"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VEDIO_PAN/quality/post_process"]
+margin_left = 95.0
+margin_right = 265.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 170, 20 )
+size_flags_horizontal = 3
+text = "off"
+align = 1
+items = [ "off", null, false, 0, null, "low", null, false, 1, null, "medium", null, false, 2, null, "high", null, false, 3, null ]
+selected = 0
+
+[node name="reflection" type="HBoxContainer" parent="MarginContainer/VEDIO_PAN/quality"]
+use_parent_material = true
+margin_top = 72.0
+margin_right = 265.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VEDIO_PAN/quality/reflection"]
+margin_top = 5.0
+margin_right = 64.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( -213.984, 43.1559 )
+text = "Reflection"
+
+[node name="OptionButton" type="CheckBox" parent="MarginContainer/VEDIO_PAN/quality/reflection"]
+margin_left = 68.0
+margin_right = 238.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 170, 20 )
+align = 2
+
+[node name="auto_exposure" type="HBoxContainer" parent="MarginContainer/VEDIO_PAN/quality"]
+use_parent_material = true
+margin_top = 100.0
+margin_right = 265.0
+margin_bottom = 124.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VEDIO_PAN/quality/auto_exposure"]
+margin_top = 5.0
+margin_right = 91.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( -213.984, 43.1559 )
+text = "auto exposure"
+
+[node name="OptionButton" type="CheckBox" parent="MarginContainer/VEDIO_PAN/quality/auto_exposure"]
+margin_left = 95.0
+margin_right = 265.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 170, 20 )
+align = 2
+
+[node name="gi" type="HBoxContainer" parent="MarginContainer/VEDIO_PAN/quality"]
+visible = false
+use_parent_material = true
+margin_top = 128.0
+margin_right = 461.0
+margin_bottom = 159.0
+size_flags_horizontal = 3
+custom_constants/separation = 180
+
+[node name="Label" type="Label" parent="MarginContainer/VEDIO_PAN/quality/gi"]
+margin_right = 111.0
+margin_bottom = 31.0
+rect_pivot_offset = Vector2( -213.984, 43.1559 )
+size_flags_horizontal = 3
+text = "global ilumnation
+"
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VEDIO_PAN/quality/gi"]
+margin_left = 291.0
+margin_right = 461.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 170, 20 )
+size_flags_horizontal = 3
+text = "off"
+align = 1
+items = [ "off", null, false, 0, null, "low", null, false, 1, null, "high", null, false, 3, null ]
+selected = 0
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VEDIO_PAN"]
+use_parent_material = true
+margin_top = 167.0
+margin_right = 416.0
+margin_bottom = 171.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+margin_top = 104.0
+margin_right = 440.0
+margin_bottom = 124.0
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="HBoxContainer2"]
+use_parent_material = true
+margin_right = 218.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "save"
+
+[node name="CLOSE" type="Button" parent="HBoxContainer2"]
+margin_left = 222.0
+margin_right = 440.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "close"
+[connection signal="pressed" from="HBoxContainer/game_play" to="." method="game_play_show"]
+[connection signal="pressed" from="HBoxContainer/controller" to="." method="controller_show"]
+[connection signal="pressed" from="HBoxContainer/VEDIO_PAN" to="." method="VEDIO_show"]
+[connection signal="pressed" from="HBoxContainer/AUDIO_PAN" to="." method="AUDIO_show"]
+[connection signal="item_selected" from="MarginContainer/game_play/language/OptionButton" to="MarginContainer/game_play" method="language_selected"]
+[connection signal="value_changed" from="MarginContainer/game_play/HUD opacity/SpinBox" to="MarginContainer/game_play" method="hud_opacity_changed"]
+[connection signal="value_changed" from="MarginContainer/game_play/FOV/SpinBox" to="MarginContainer/game_play" method="fov_changed"]
+[connection signal="item_selected" from="MarginContainer/AUDIO_PAN/VBoxContainer/VoiceOver/OptionButton" to="MarginContainer/AUDIO_PAN" method="voice_over_selected"]
+[connection signal="value_changed" from="MarginContainer/AUDIO_PAN/VBoxContainer/Master/HS_G" to="MarginContainer/AUDIO_PAN" method="master_value_changed"]
+[connection signal="value_changed" from="MarginContainer/AUDIO_PAN/VBoxContainer/BGM/HS_M" to="MarginContainer/AUDIO_PAN" method="BGM_value_changed"]
+[connection signal="value_changed" from="MarginContainer/AUDIO_PAN/VBoxContainer/SFX/HS_FX" to="MarginContainer/AUDIO_PAN" method="SFX_value_changed"]
+[connection signal="value_changed" from="MarginContainer/AUDIO_PAN/VBoxContainer/Voice_over/HS_FX" to="MarginContainer/AUDIO_PAN" method="VO_value_changed"]
+[connection signal="value_changed" from="MarginContainer/AUDIO_PAN/VBoxContainer/Voice_chat/HS_FX" to="MarginContainer/AUDIO_PAN" method="voice_chat_value_changed"]
+[connection signal="toggled" from="MarginContainer/AUDIO_PAN/mute" to="MarginContainer/AUDIO_PAN" method="_on_mute_toggled"]
+[connection signal="pressed" from="MarginContainer/controller/player/Button2" to="MarginContainer/controller" method="pre_pressed"]
+[connection signal="pressed" from="MarginContainer/controller/player/Button" to="MarginContainer/controller" method="next_pressed"]
+[connection signal="item_selected" from="MarginContainer/VEDIO_PAN/display_mode/OptionButton" to="MarginContainer/VEDIO_PAN" method="display_mode_selected"]
+[connection signal="item_selected" from="MarginContainer/VEDIO_PAN/resloution/OptionButton" to="MarginContainer/VEDIO_PAN" method="resloution_selected"]
+[connection signal="value_changed" from="MarginContainer/VEDIO_PAN/fps/SpinBox" to="MarginContainer/VEDIO_PAN" method="Fps_changed"]
+[connection signal="value_changed" from="MarginContainer/VEDIO_PAN/exposure/HSlider" to="MarginContainer/VEDIO_PAN" method="exposure_changed"]
+[connection signal="pressed" from="MarginContainer/VEDIO_PAN/vsync_hdr/vsync" to="MarginContainer/VEDIO_PAN" method="vsync_pressed"]
+[connection signal="pressed" from="MarginContainer/VEDIO_PAN/vsync_hdr/HDR" to="MarginContainer/VEDIO_PAN" method="HDR_pressed"]
+[connection signal="item_selected" from="MarginContainer/VEDIO_PAN/video_set/OptionButton" to="MarginContainer/VEDIO_PAN" method="video_quality_selected"]
+[connection signal="item_selected" from="MarginContainer/VEDIO_PAN/quality/anit_aliasing/OptionButton" to="MarginContainer/VEDIO_PAN" method="AA_selected"]
+[connection signal="item_selected" from="MarginContainer/VEDIO_PAN/quality/shadow/OptionButton" to="MarginContainer/VEDIO_PAN" method="shadow_size_selected"]
+[connection signal="item_selected" from="MarginContainer/VEDIO_PAN/quality/post_process/OptionButton" to="MarginContainer/VEDIO_PAN" method="post_process_selected"]
+[connection signal="pressed" from="MarginContainer/VEDIO_PAN/quality/reflection/OptionButton" to="MarginContainer/VEDIO_PAN" method="reflection_pressed"]
+[connection signal="pressed" from="MarginContainer/VEDIO_PAN/quality/auto_exposure/OptionButton" to="MarginContainer/VEDIO_PAN" method="auto_exposure_pressed"]
+[connection signal="item_selected" from="MarginContainer/VEDIO_PAN/quality/gi/OptionButton" to="MarginContainer/VEDIO_PAN" method="GI_selected"]
+[connection signal="pressed" from="HBoxContainer2/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="HBoxContainer2/CLOSE" to="." method="_on_CLOSE_pressed"]
