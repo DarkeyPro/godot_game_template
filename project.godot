@@ -31,6 +31,9 @@ run/main_scene="res://Scenes/main.tscn"
 boot_splash/image="res://Assets/Textures/black.png"
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
+GameInfo/debug=false
+GameInfo/version="0.1"
+GameInfo/3D=false
 
 [audio]
 

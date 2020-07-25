@@ -41,13 +41,14 @@ func tweening(
 
 
 func find_file(path, specific = "", type = ""):
-	var indivisual = true if type != "" and specific != "" else false
+	var indivisual = true if type != "" or specific != "" else false
 	var paths = []
 	var dir = Directory.new()
 	if dir.open(path) == OK:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		var first = file_name
+		
 		while file_name != "" and file_name != "." and file_name != "..":
 			paths.append(file_name)
 			file_name = dir.get_next()
@@ -57,7 +58,7 @@ func find_file(path, specific = "", type = ""):
 		print("An error occurred when trying to access the path.")
 	if indivisual:
 		for i in paths:
-			if specific in i and type in i:
+			if specific in i or type in i:
 				return i
 		return ""
 	else:

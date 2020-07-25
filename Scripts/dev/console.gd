@@ -13,21 +13,19 @@ func _ready():
 func active():
 	if !visible:
 		visible =true
-		$LineEdit.grab_focus()
-		_process(true)
 	else:
 		visible =false
-		_process(false)
+		$LineEdit.text=""
 
-func _process(delta):
-	$LineEdit.grab_focus()
 
 func output(value):
 	$TextEdit.readonly=false
 	$TextEdit.text =str($TextEdit.text,"\n",value)
 	$TextEdit.set_v_scroll(9999999)
 	$TextEdit.readonly=true
-
+	if value ==null:
+		return false
+	return true
 func _on_LineEdit_text_entered(new_text):
 	$LineEdit.clear()
 	process_command(new_text)
@@ -50,22 +48,28 @@ func process_command(text):
 			if words.size()!=i[1].size():
 				output(str('failure executing command:"',command,'",expected',i[1].size(),'parameters'))
 				return
-			for x in range(words.size()):
-				if not check_type(words[x],i[1][x]):
-					output(str('failure executing command:"',command,'",parameters',(x+1),'("',words[x],'") is of the wrong type'))
-					return
-			output(command_handler.callv(command,words))
-			return
-	output(str('command:"',command,'",does not exist'))
+			if !words.empty():
+				for x in range(words.size()):
+					if not check_type(words[x],i[1][x]):
+						output(str('failure executing command:"',command,'",parameters',(x+1),'("',words[x],'") is of the wrong type'))
+						return
+				output(command_handler.callv(command,words))
+				return
+			else:
+				output(command_handler.call(command))
+				return
+	print(words)
+	output(command_handler.run_command(command,words))
+
 
 func check_type(value,type):
-	if type ==command_handler.arg_int:
+	if type ==command_handler.type.arg_int:
 		return value.is_value_integer()
-	if type ==command_handler.arg_float:
+	if type ==command_handler.type.arg_float:
 		return value.is_value_float()
-	if type ==command_handler.arg_bool:
+	if type ==command_handler.type.arg_bool:
 		return (value=="true"or value =="false")
-	if type ==command_handler.arg_string:
+	if type ==command_handler.type.arg_string:
 		return true
 	return false
 
@@ -75,12 +79,14 @@ func _input(event):
 			goto_command_history(-1)
 		if event.scancode == KEY_DOWN:
 			goto_command_history(1)
-
+		$LineEdit.grab_focus()
 func  goto_command_history(value):
-	
 	line += value
 	line = clamp(line, 0, history.size())
 	if line < history.size() and history.size() > 0:
 		print(line,history[line],history)
 		$LineEdit.text = str(history[line])
 		$LineEdit.call_deferred("set_cursor_position", 99999999)
+func visibility_changed():
+	if visible:
+		$LineEdit.grab_focus()
